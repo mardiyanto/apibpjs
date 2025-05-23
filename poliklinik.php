@@ -24,7 +24,7 @@ $tStamp = strval(time() - strtotime('1970-01-01 00:00:00'));
 $signature = base64_encode(hash_hmac('sha256', $cons_id . "&" . $tStamp, $secretKey, true));
 
 
-$url = "https://apijkn.bpjs-kesehatan.go.id/antreanrs/ref/dokter";
+$url = "https://apijkn.bpjs-kesehatan.go.id/antreanrs/ref/poli";
 
 $headers = [
     "x-cons-id: $cons_id",
@@ -97,15 +97,15 @@ $durationInMinutes = $duration / 60;
             echo '<div class="table-responsive">';
             echo '<table class="table table-striped table-bordered table-hover" id="doctorTable">';
             echo '<thead class="table-dark">';
-            echo '<tr><th scope="col">No</th><th scope="col">Kode Dokter</th><th scope="col">Nama Dokter</th></tr>';
+            echo '<tr><th scope="col">No</th><th scope="col">Kode Poli</th><th scope="col">Nama Poli</th></tr>';
             echo '</thead><tbody>';
             $no = 1;
-            foreach ($data as $dokter) {
-                if (isset($dokter['kodedokter']) && isset($dokter['namadokter'])) {
+            foreach ($data as $poli) {
+                if (isset($poli['kdpoli']) && isset($poli['nmpoli'])) {
                     echo '<tr>';
                     echo '<td>' . $no++ . '</td>';
-                    echo '<td>' . htmlspecialchars($dokter['kodedokter']) . '</td>';
-                    echo '<td>' . htmlspecialchars($dokter['namadokter']) . '</td>';
+                    echo '<td>' . htmlspecialchars($poli['kdpoli']) . '</td>';
+                    echo '<td>' . htmlspecialchars($poli['nmpoli']) . '</td>';
                     echo '</tr>';
                 }
             }
