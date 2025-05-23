@@ -72,8 +72,8 @@ function decompress($string){
         <div class="mb-3">
             <label for="kodepoli" class="form-label">Kode Poli</label>
             <select class="form-select" id="kodepoli" name="kodepoli" required>
-                <option value="ANA">ANA</option>
-                <option value="BED">BED</option>
+                <!-- <option value="ANA">ANA</option>
+                <option value="BED">BED</option> -->
                 <!-- Tambahkan opsi lain sesuai kebutuhan -->
                 <?php
                 // Dekripsi respons daftar poli
@@ -87,7 +87,7 @@ function decompress($string){
                         $dataPoliList = json_decode($decompressedPoli, true);
                         if (is_array($dataPoliList)) {
                             foreach ($dataPoliList as $dataPoli) {
-                                echo '<option value="' . htmlspecialchars($dataPoli['kdpoli']) . '">' . htmlspecialchars($dataPoli['nmpoli']) . '</option>';
+                                echo '<option value="' . htmlspecialchars($dataPoli['kdpoli']) . '">' . htmlspecialchars($dataPoli['kdpoli']) . ' - ' . htmlspecialchars($dataPoli['nmsubspesialis']) . '</option>';
                             }
                         } else {
                             die("<div class='alert alert-warning'>Data poli tidak valid.</div>");
